@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% block title %} Medicine Data {% endblock title %}
+{% block extra_css %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/data.css' %}" />
+{% endblock extra_css %} {% block base_block %}
+<div class="main-div p-4">
+  <h1 class="text-center text-light m-4 mt-3">Medicine Details</h1>
+
+  <form class="m-3" method="get">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by medicine name"
+        name="search"
+        value="{{ search_query }}"
+        onkeyup="getSuggestions()"
+      />
+      <button type="submit" class="btn btn-primary suggestion-list">
+        Search
+      </button>
+    </div>
+  </form>
+
+  <div class="display-data m-3">
+    <table class="table table-bordered table-hover table-light rounded-3">
+      <thead>
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center">Type</th>
+          <th class="text-center">Dosage</th>
+          <th class="text-center">Strength</th>
+          <th class="text-center">Manufacturer</th>
+          <th class="text-center">Package</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for medicine in medicines %}
+        <tr>
+          <td class="text-center">{{ medicine.brand_name }}</td>
+          <td class="text-center">{{ medicine.type }}</td>
+          <td class="text-center">{{ medicine.dosage }}</td>
+          <td class="text-center">{{ medicine.strength }}</td>
+          <td class="text-center">{{ medicine.manufacturers }}</td>
+          <td class="text-center">{{ medicine.package_container }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center">No medicines found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination m-3">
+    <nav aria-label="Page navigation">
+      <div class="d-flex justify-content-center">
+        <ul class="pagination">
+          {% if medicines.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+              <span aria-hidden="true">&laquo; First</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ medicines.previous_page_number }}"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&lsaquo; Previous</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li class="page-item disabled">
+            <span class="page-link">
+              Page {{ medicines.number }} of {{ medicines.paginator.num_pages }}
+            </span>
+          </li>
+
+          {% if medicines.has_next %}
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ medicines.next_page_number }}"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">Next &rsaquo;</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ medicines.paginator.num_pages }}"
+              aria-label="Last"
+            >
+              <span aria-hidden="true">Last &raquo;</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="back-home-div m-3">
+    <a class="btn" href="{% url 'index' %}">Back to Homepage</a>
+  </div>
+</div>
+
+{% endblock base_block %}

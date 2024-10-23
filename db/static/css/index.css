@@ -1,0 +1,56 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.header-calss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.medicine-header {
+  color: black;
+  text-align: center;
+  padding: 20px;
+  font-size: 50px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.go-medicine-button {
+  padding: 10px 30px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border: none;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #45a049;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+  }
+
+  &:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  &:focus-visible,
+  &:focus-within {
+    outline: 3px solid #4caf50;
+    outline-offset: 2px;
+  }
+}
