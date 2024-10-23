@@ -44,7 +44,8 @@ Medicine Array is a Django-based web application that briefly details the availa
 source .venv/Scripts/activate</code></pre>
 
 3. Install the required dependencies:
-<pre><code>pip install -r requirements.txt</code></pre>
+<pre><code>pip install -r requirements.txt
+pip install django</code></pre>
 
 4. Apply migrations to set up the SQLite database:
 <pre><code>python manage.py migrate
