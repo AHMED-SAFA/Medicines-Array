@@ -19,7 +19,7 @@ Medicine Array is a Django-based web application that briefly details the availa
       <strong>CSV to SQLite</strong>
   </summary>
   <br> 
-    Used a CSV file to import data directly into the SQLite database. For medicine data below dataset is used. 
+    Data was imported straight into the SQLite database using a CSV file. The dataset below is used for medical data.
     <pre><code>https://www.kaggle.com/discussions/general/311821</code></pre>
   </br>
   </details>
