@@ -1,6 +1,6 @@
 <h1 align="center">Medicine Array</h1>
 
-Medicine Array is a Django-based web application that briefly details the available medicines in Bangladesh. This project is designed to visualize medicines data efficiently.
+Medicine Array is a Django-based web application that briefly details the available medicines in <strong>Bangladesh</strong>. This project is designed to visualize medicines data efficiently.
 
 <div align="center">
 
